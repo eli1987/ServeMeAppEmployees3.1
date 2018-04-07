@@ -40,15 +40,14 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         String type = params[0];
 
         // String login_url = "http://10.0.2.2/security/fcm_insert.php";
-        // String login_url = "http://192.168.14.157/ServerMeApp/login.php";
-        String login_url = "http://servemeapp.000webhostapp.com//androidDataBaseQueries.php";
+        String ServerUrl = InformationDataForApplication.Url;
         // String notification_url = "http://securitymanagementapp.000webhostapp.com//send_notiofication.php";
         if (type.equals("login")) {
             typeToCheck = "login";
             try {
                 String workerNumber = params[1];
                 String password = params[2];
-                URL url = new URL(login_url);
+                URL url = new URL(ServerUrl);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
 
@@ -96,7 +95,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             typeToCheck = "remove";
             try {
                 String reqId = params[1];
-                URL url = new URL(login_url);
+                URL url = new URL(ServerUrl);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
 
